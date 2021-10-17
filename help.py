@@ -25,7 +25,7 @@ class Help(commands.Cog):
             return await ctx.send(embed=query_error_embed)
 
         cog_help_embed = discord.Embed(
-            title=f"Bot Commands",
+            title=f"GuraBot parancsok:",
             color=discord.Color.blue(),
         )
 
@@ -36,15 +36,21 @@ class Help(commands.Cog):
                     command.aliases) > 0 else "None"
             )
             cog_help_embed.add_field(
-                name=(f"_{command.name} , {command_aliases}") if (
-                    command_aliases != "None") else (f"_{command.name}"),
+                name=(f"!{command.name} , {command_aliases}") if (
+                    command_aliases != "None") else (f"!{command.name}"),
                 value=f"`{command.help}`",
                 inline=False,
             )
 
         cog_help_embed.add_field(
-            name="Developer:",
-            value="Aman Prakash Jha \U0001F525",
+            name="Fejlesztő:",
+            value="Kókai TikTok Patrik és Gawr Gura legnagyobb rajongója lmao \U0001F525",
+            inline=False
+        )
+
+        cog_help_embed.add_field(
+            name="Lábjegyzet:",
+            value="To do: Hamarosan jön a vicces spondzsbob parancs haha.\n(A bot nem 24/7-ben fut.) \U0001F525",
             inline=False
         )
         await ctx.send(embed=cog_help_embed)
